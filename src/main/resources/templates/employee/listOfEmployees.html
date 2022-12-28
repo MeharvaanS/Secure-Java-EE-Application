@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/fragment/general.html :: head"></head>
+
+<body><br><br>
+
+	<header th:replace = "/fragment/general.html :: header"></header>
+	
+	<div class="list"><br>
+		<h3>Employee Information:</h3>
+		<table>
+			<tr>
+				<th>EmloyeeName</th>
+				<th>EmployeeEmail</th>
+				<th>EmployeePhone</th>
+				
+			</tr>
+			<tr th:each="aEmployee:${employees}">
+				<td th:text="${aEmployee.employeeName}"></td>
+				<td th:text="${aEmployee.employeeEmail}"></td>
+				<td th:text="${aEmployee.employeePhone}"></td>
+				
+			</tr>
+		</table>
+			<p>Please check the employee information and click to 
+			<a href="/employee/employeeAccess" th:href="@{/employee/employeeAccess}">Back</a></p>
+	</div>
+	
+	<footer th:replace = "/fragment/general.html :: footer"></footer>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head th:replace = "/fragment/general.html :: head"></head>
+	
+	<body><br><br>
+		<h1 style="color:darkblue;">Hello <span sec:authentication="name"></span>!</h1>
+		
+		<header th:replace = "/fragment/general.html :: header"></header>
+		<div class="index"><br>
+		
+			<p>
+				This Secure Java EE application is to get employee input<br>
+				data as a Employee object, add the Employee object<br>
+				to the database, retrieve Employee objects from<br>
+				the database and display as a table, also with<br>
+				feature to edit, delete and search employees<br>
+				in the employees table in the database<br>	
+			</p>
+             
+			<a sec:authorize="hasRole('ADMIN')" href="/admin/admissAccess" th:href="@{/admin/adminAccess}">Work As Admin</a><br><br>
+			<a sec:authorize="hasRole('EMPLOYEE')" href="/employee/employeeAccess" th:href="@{/employee/employeeAccess}">Work As Employee</a><br><br>
+			<div>
+				<form action="#" th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+				</form>
+			</div>
+		</div>	<br><br>
+		<footer th:replace = "/fragment/general.html :: footer"></footer>
+		
+	</body>
+</html>

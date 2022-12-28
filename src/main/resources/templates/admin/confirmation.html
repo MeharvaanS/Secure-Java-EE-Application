@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace = "/fragment/general.html :: head"></head>
+	
+	<body><br><br>
+
+		<h2 th:text="'Employee ' + ${objective} + ' Confirmation:'"></h2>
+		<div class="confirmation">
+			<h4 th:text="${message}"></h4>
+			
+			<p th:if="${rows} > 0" th:text="'Employee name: ' + ${employee.employeeName}"></p>
+			<p th:if="${rows} > 0" th:text="'Employee Email: ' + ${employee.employeeEmail}"></p>
+			<p th:if="${rows} > 0" th:text="'Employee Phone: ' + ${employee.employeePhone}"></p>
+			
+			<a href="/admin/adminAccess" th:href="@{/admin/adminAccess}">Continue</a>
+		</div>
+			
+		<footer th:replace = "/fragment/general.html :: footer"></footer>
+		
+	</body>
+</html>

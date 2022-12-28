@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/fragment/general.html :: head"></head>
+
+
+<body><br>
+
+	<header th:replace = "/fragment/general.html :: header"></header>
+	
+	<div class="list"><br>
+		<h3>Employee Information:</h3>
+	
+		<table>
+			<tr>
+				<th>EmloyeeName</th>
+				<th>EmployeeEmail</th>
+				<th>EmployeePhone</th>
+				<th>Edit Link</th>
+				<th>Delete Link</th>
+			</tr>
+			<tr th:each="aEmployee:${employees}">
+				<td th:text="${aEmployee.employeeName}"></td>
+				<td th:text="${aEmployee.employeeEmail}"></td>
+				<td th:text="${aEmployee.employeePhone}"></td>
+				<td ><a th:href="@{/admin/employeeDataEdit/} + ${aEmployee.getEmployeeNumber()}">Edit</a></td>
+				<td ><a th:href="@{/deleteConfirmation/} + ${aEmployee.getEmployeeNumber()}">Delete</a></td>
+				
+			</tr>
+		</table>
+	<p>Please check the employee information and click to 
+		<a href="/admin/adminAccess" th:href="@{/admin/adminAccess}">Back</a></p>
+	</div>
+		
+	<footer th:replace = "/fragment/general.html :: footer"></footer>
+	
+</body>
+</html>

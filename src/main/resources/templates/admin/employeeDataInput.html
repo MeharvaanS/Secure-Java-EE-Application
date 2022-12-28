@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/fragment/general.html :: head"></head>
+
+<body><br><br>
+
+	<h2 >Please fill the employee data input form:</h2>
+	<div class="input">
+	
+		<form action="#" th:action="@{/addConfirmation}" th:object="${employee}" method="post">
+		
+			<br><p> Employee Name: <input type="text" th:field="*{employeeName}" /></p>
+			<p> Employee Email: <input type="text" th:field="*{employeeEmail}" /></p>
+			<p>Employee Phone: <input type="text" th:field="*{employeePhone}" /></p><br><br>
+			
+			<p><input type="submit" value="Submit" /> <br> <br>
+			<input type="reset" value="Reset" /></p>
+			
+		</form>
+		
+		<p> <a href="/admin/adminAccess" th:href="@{/admin/adminAccess}"> Cancel</a> </p>
+	</div>
+	
+	<footer th:replace = "/fragment/general.html :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace = "/fragment/general.html :: head"></head>
+	
+	<body><br><br>
+		<div class="search">
+		
+			<h2 th:text="'Enter the ' + ${search} + ' here:'"></h2> 
+			
+			<form action="#" th:action="@{/employeeSearchResult}" method="post">
+				<input type="hidden" name="search" th:value="${search}"/>
+				<p th:if="${search}=='email'">Employee E-mail:&nbsp;<input type="text" name="searchCriteria"/></p>
+				<p th:if="${search}=='phone'">Employee Phone:&nbsp;<input type="text" name="searchCriteria"/></p>
+				<p th:if="${search}=='name'">Employee Name:&nbsp;<input type="text" name="searchCriteria"/></p>
+				<p><input type="submit" value="Search" /><br><br>
+				<input type="reset" value="Reset" /></p>
+			</form>
+			
+			
+			<br><a href="/employee/employeeAccess" th:href="@{/employee/employeeAccess}">Back</a>
+		</div>
+		
+		<footer th:replace = "/fragment/general.html :: footer"></footer>
+		
+	</body>
+</html>

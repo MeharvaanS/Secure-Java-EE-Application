@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/fragment/general.html :: head"></head>
+<body><br><br>
+	<h2>EMPLOYEE ACCESS</h2>
+	<div class="access">
+	
+		<p>Welcome! You are currently logged in as a employee and you are authorised 
+		<br> to perform and view following componenets in the employee database.<p><br>
+	
+		<b>List of employee:</b>&nbsp;&nbsp;<a href="/employee/listOfEmployees" th:href="@{/employee/listOfEmployees}">View Employees</a><br><br>
+	    <b>Search by Email:</b>&nbsp;&nbsp;<a href="/employee/employeeDataSearch?search=email" th:href="@{/employee/employeeDataSearch?search=email}">Search Using Email</a><br><br>
+		<b>Search by Phone:</b>&nbsp;&nbsp;<a href="/employee/employeeDataSearch?search=phone" th:href="@{/employee/employeeDataSearch?search=phone}">Search Using Phone</a><br><br>
+		<b>Search by Name:</b>&nbsp;&nbsp;<a href="/employee/employeeDataSearch?search=name" th:href="@{/employee/employeeDataSearch?search=name}">Search Using Name</a><br><br>
+		
+		<a href="/index" th:href="@{/index}">Home</a>
+	</div>
+	
+	<footer th:replace = "/fragment/general.html :: footer"></footer>
+	
+</body>
+</html>
